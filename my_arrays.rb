@@ -1,6 +1,9 @@
 require_relative './enumerable.rb'
 
-%i[1 2 3 4 5].my_each { |n| puts n }
+a = %i[1 2 3 4 5].my_each { |n| puts n }
+print a
+b = %i[1 2 3 4 5].my_each { |n| puts n }
+print b
 
 %i[1 2 3 4 5].my_each_with_index { |n| puts n }
 
