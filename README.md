@@ -55,6 +55,20 @@ Follow the instructions below in order to use this project:
 - Twitter: [@twitterhandle](https://twitter.com/ramon_de_NL)
 - LinkedIn: [linkedin](https://www.linkedin.com/in/ramon-carrillo-54525a1ab/)
 
+## Test Authors
+
+👤 Andjela Vukadinovic 
+
+- GitHub: [@githubhandle](https://github.com/410AngelaVu)
+- Twitter: [@twitterhandle](@vukadinov7)
+- LinkedIn: [linkedin](https://www.linkedin.com/in/andjela-vukadinovic-67a21b1b2/)
+
+👤 **Julian Ramos**
+
+- GitHub: [@julian3493](https://github.com/julian3493)
+- Twitter: [@JulianR16893833](https://twitter.com/JulianR16893833)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/juli%C3%A1n-ricardo-ramos-arevalo-3868ba135/)
+
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!

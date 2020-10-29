@@ -1,3 +1,6 @@
+# rubocop:disable Metrics/CyclomaticComplexity
+# rubocop:disable Metrics/PerceivedComplexity
+
 module Enumerable
   def my_each
     i = 0
@@ -8,12 +11,16 @@ module Enumerable
   end
 
   def my_each_with_index
+    return to_enum(:my_each_with_index) unless block_given?
+
+    list = to_a if self.class == Range || Hash
+
     i = 0
-    index = 0
-    while i < to_a.length
-      yield i, index
+    while i < list.length
+      yield(list[i], i)
       i += 1
     end
+    self
   end
 
   def my_select
@@ -70,14 +77,24 @@ module Enumerable
     arr
   end
 
-  def my_inject(acc = nil)
-    acc = to_a[0] if acc.nil?
-    result = acc
-    to_a.my_each { |item| result = yield(result, item) }
-    result
+  def my_inject(arg = nil, sym = nil)
+    if (arg.is_a?(Symbol) || arg.is_a?(String)) && (!arg.nil? && sym.nil?)
+      sym = arg
+      arg = nil
+    end
+
+    if !block_given? && !sym.nil?
+      my_each { |item| arg = arg.nil? ? item : arg.send(sym, item) }
+    else
+      my_each { |item| arg = arg.nil? ? item : yield(arg, item) }
+    end
+    arg
   end
 end
 
 def multiply_els(arr)
   arr.my_inject(1) { |item, total| total * item }
 end
+
+# rubocop:enable Metrics/CyclomaticComplexity
+# rubocop:enable Metrics/PerceivedComplexity
