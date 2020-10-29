@@ -96,7 +96,5 @@ def multiply_els(arr)
   arr.my_inject(1) { |item, total| total * item }
 end
 
-# rubocop:enable Metrics/ModuleLength
 # rubocop:enable Metrics/CyclomaticComplexity
 # rubocop:enable Metrics/PerceivedComplexity
-# rubocop:enable Style/RedundantSelf
