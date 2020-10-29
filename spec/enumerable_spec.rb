@@ -8,17 +8,17 @@ describe Enumerable do
       arr = [1, 2, 3, 5]
       a = []
       b = []
-      arr.my_each { |x| a.push(x)}
-      arr.each { |x| b.push(x)}
+      arr.my_each { |x| a.push(x) }
+      arr.each { |x| b.push(x) }
       expect(a).to eql(b)
     end
   end
 
   describe '#my_each_with_index' do
     it 'returns the item and its index' do
-      hash = Hash.new
+      hash = {}
       %w[cat dog wombat].each_with_index { |item, index| hash[item] = index }
-      hash1 = Hash.new
+      hash1 = {}
       %w[cat dog wombat].my_each_with_index { |item, index| hash1[item] = index }
       expect(hash1).to eql(hash)
     end
@@ -39,18 +39,18 @@ describe Enumerable do
   end
 
   describe '#my_all?' do
-     it 'return the same value of all? method' do 
-      arr = ['alpha', 'apple', 'allen key'] 
-      a = arr.my_all? { |x| x[0] == 'a'} 
-      b = arr.all? { |x| x[0] == 'a' } 
-      expect(a).to eql(b) 
-    end 
-    it 'return true when all strings match the pattern' do 
-      arr = ['alpha', 'apple', 'allen key'] 
-      a = arr.my_all? { |x| x[0] == 'a' } 
-      expect(a).to eql(true) 
-    end 
-  end 
+    it 'return the same value of all? method' do
+      arr = ['alpha', 'apple', 'allen key']
+      a = arr.my_all? { |x| x[0] == 'a'}
+      b = arr.all? { |x| x[0] == 'a' }
+      expect(a).to eql(b)
+    end
+    it 'return true when all strings match the pattern' do
+      arr = ['alpha', 'apple', 'allen key']
+      a = arr.my_all? { |x| x[0] == 'a' }
+      expect(a).to eql(true)
+    end
+  end
 
   describe '#my_any' do
     it 'return the same value of any? method' do
@@ -91,7 +91,7 @@ describe Enumerable do
       expect(a).to eql([1, 4, 9, 16])
     end
   end
-  
+
   describe '#my_inject' do
     it 'return the same value of map method' do
       a = (1..4).my_inject { |sum, n| sum + n }
