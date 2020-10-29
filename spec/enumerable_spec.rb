@@ -65,4 +65,17 @@ describe Enumerable do
       expect(a).to eql(true)
     end
   end
+  describe '#my_none?' do 
+    it 'return the same value of none? method' do 
+      arr = ['alpha', 'apple', 'allen key'] 
+      a = arr.my_none? { |x| x[0] == 'z' } 
+      b = arr.none? { |x| x[0] == 'z' } 
+      expect(a).to eql(b) 
+    end 
+    it 'return true when none strings match the pattern' do 
+      arr = ['alpha', 'apple', 'allen key'] 
+      a = arr.my_none? { |x| x[0] == 'z' } 
+      expect(a).to eql(true) 
+    end 
+  end 
 end
