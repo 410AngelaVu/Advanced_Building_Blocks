@@ -8,12 +8,16 @@ module Enumerable
   end
 
   def my_each_with_index
+    return to_enum(:my_each_with_index) unless block_given?
+
+    list = to_a if self.class == Range || Hash
+
     i = 0
-    index = 0
-    while i < to_a.length
-      yield i, index
+    while i < list.length
+      yield(list[i], i)
       i += 1
     end
+    self
   end
 
   def my_select

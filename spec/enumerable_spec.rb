@@ -13,15 +13,28 @@ describe Enumerable do
       expect(a).to eql(b)
     end
   end
+
   describe '#my_each_with_index' do
     it 'returns the item and its index' do
       hash = Hash.new
-%w(cat dog wombat).each_with_index { |item, index|
-  hash[item] = index
-}
-hash1 = Hash.new
-%w(cat dog wombat).my_each_with_index { |item, index| hash1[item] = index}
-expect(hash).to eql(hash1)
-end
-end
+      %w[cat dog wombat].each_with_index { |item, index| hash[item] = index }
+      hash1 = Hash.new
+      %w[cat dog wombat].my_each_with_index { |item, index| hash1[item] = index }
+      expect(hash1).to eql(hash)
+    end
+  end
+
+  describe '#my_select' do
+    it 'return the same value of select method' do
+      arr = [1, 2, 3, 4, 5, 6]
+      a = arr.my_select { |num| num % 3 == 0 }
+      b = arr.select { |num| num % 3 == 0 }
+      expect(a).to eql(b)
+    end
+    it 'return the numbers which can be divided by 3' do
+      arr = [1, 2, 3, 4, 5, 6]
+      a = arr.my_select { |num| num % 3 == 0 }
+      expect(a).to eql([3, 6])
+    end
+  end
 end
