@@ -41,7 +41,7 @@ describe Enumerable do
   describe '#my_all?' do
     it 'return the same value of all? method' do
       arr = ['alpha', 'apple', 'allen key']
-      a = arr.my_all? { |x| x[0] == 'a'}
+      a = arr.my_all? { |x| x[0] == 'a' }
       b = arr.all? { |x| x[0] == 'a' }
       expect(a).to eql(b)
     end
