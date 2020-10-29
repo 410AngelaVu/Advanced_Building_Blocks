@@ -13,4 +13,15 @@ describe Enumerable do
       expect(a).to eql(b)
     end
   end
+  describe '#my_each_with_index' do
+    it 'returns the item and its index' do
+      hash = Hash.new
+%w(cat dog wombat).each_with_index { |item, index|
+  hash[item] = index
+}
+hash1 = Hash.new
+%w(cat dog wombat).my_each_with_index { |item, index| hash1[item] = index}
+expect(hash).to eql(hash1)
+end
+end
 end
