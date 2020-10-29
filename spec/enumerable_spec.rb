@@ -65,17 +65,42 @@ describe Enumerable do
       expect(a).to eql(true)
     end
   end
-  describe '#my_none?' do 
-    it 'return the same value of none? method' do 
-      arr = ['alpha', 'apple', 'allen key'] 
-      a = arr.my_none? { |x| x[0] == 'z' } 
-      b = arr.none? { |x| x[0] == 'z' } 
-      expect(a).to eql(b) 
-    end 
-    it 'return true when none strings match the pattern' do 
-      arr = ['alpha', 'apple', 'allen key'] 
-      a = arr.my_none? { |x| x[0] == 'z' } 
-      expect(a).to eql(true) 
-    end 
-  end 
+
+  describe '#my_none?' do
+    it 'return the same value of none? method' do
+      arr = ['alpha', 'apple', 'allen key']
+      a = arr.my_none? { |x| x[0] == 'z' }
+      b = arr.none? { |x| x[0] == 'z' }
+      expect(a).to eql(b)
+    end
+    it 'return true when none strings match the pattern' do
+      arr = ['alpha', 'apple', 'allen key']
+      a = arr.my_none? { |x| x[0] == 'z' }
+      expect(a).to eql(true)
+    end
+  end
+
+  describe '#my_map' do
+    it 'return the same value of map method' do
+      a = (1..4).my_map { |i| i * i }
+      b = (1..4).map { |i| i * i }
+      expect(a).to eql(b)
+    end
+    it 'return a new array with the results of the block' do
+      a = (1..4).my_map { |i| i * i }
+      expect(a).to eql([1, 4, 9, 16])
+    end
+  end
+  
+  describe '#my_inject' do
+    it 'return the same value of map method' do
+      a = (1..4).my_inject { |sum, n| sum + n }
+      b = (1..4).inject { |sum, n| sum + n }
+      expect(a).to eql(b)
+    end
+    it 'Combines all elements of enum by applying a binary operation' do
+      a = (1..4).my_inject { |sum, n| sum + n }
+      expect(a).to eql(10)
+    end
+  end
 end
