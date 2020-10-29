@@ -37,6 +37,7 @@ describe Enumerable do
       expect(a).to eql([3, 6])
     end
   end
+
   describe '#my_all?' do
      it 'return the same value of all? method' do 
       arr = ['alpha', 'apple', 'allen key'] 
@@ -50,4 +51,18 @@ describe Enumerable do
       expect(a).to eql(true) 
     end 
   end 
+
+  describe '#my_any' do
+    it 'return the same value of any? method' do
+      arr = ['alpha', 'apple', 'allen key']
+      a = arr.my_any? { |x| x[2] == 'l' }
+      b = arr.any? { |x| x[2] == 'l' }
+      expect(a).to eql(b)
+    end
+    it 'return true when at least one element matches the pattern' do
+      arr = ['alpha', 'apple', 'allen key']
+      a = arr.my_any? { |x| x[2] == 'l' }
+      expect(a).to eql(true)
+    end
+  end
 end
